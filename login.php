@@ -29,48 +29,51 @@ include("./connect.php");
    <?php if(!isset($_SESSION['ss_mb_id'])){ ?>
    <body>
      <div class="login_form">
-       <table>
-         <tr>
-           <th>아이디</th>
-           <td><input type="text" name="id" value=""></td>
-         </tr>
-         <tr>
-           <th>비밀번호</th>
-           <td><input type="password" name="pw" value=""> </td>
-         </tr>
-         <tr>
-           <td colspan = "2" class = "td_center">
-             <input type="submit" name="" value="로그인">
-             <a href="./register.php">회원가입</a>
-           </td>
-         </tr>
-       </table>
+       <form class="" action="login_check.php" method="post">
+         <table>
+           <tr>
+             <th>아이디</th>
+             <td><input type="text" name="id" value=""></td>
+           </tr>
+           <tr>
+             <th>비밀번호</th>
+             <td><input type="password" name="pw" value=""> </td>
+           </tr>
+           <tr>
+             <td colspan = "2" class = "td_center">
+               <input type="submit" name="" value="로그인">
+               <a href="./register.php">회원가입</a>
+             </td>
+           </tr>
+         </table>
+       </form>
      </div>
    <?php } else {?>
-     <h1>로그인을 환영합니다</h1>
-     <?php $mb_id = $_SESSION['ss_mb_id'];
-     $sql = "SELECT * FROM member WHERE mb_id = TRIM('$mb_id')";
-     $result = mysqli_query($conn, $sql);
-     $mb = mysqli_fetch_assoc($result);
-
-     mysqli_close($conn);
+     <div class="login_form">
+       <h1>로그인을 환영합니다</h1>
+       <?php $mb_id = $_SESSION['ss_mb_id'];
+       $sql = "SELECT * FROM member WHERE mb_id = TRIM('$mb_id')";
+       $result = mysqli_query($conn, $sql);
+       $mb = mysqli_fetch_assoc($result);
+       mysqli_close($conn);
       ?>
-      <table>
-        <tr>
-          <th>아이디</th>
-          <td><?php echo $mb['$mb_id'] ?></td>
-        </tr>
-        <tr>
-          <th>이름</th>
-          <td><?php echo $mb['$mb_name'] ?></td>
-        </tr>
-        <tr>
-          <td colspan="2" class = "td_center">
-            <a href="./register.php?mode=modify">회원수정</a>
-            <a href="./logout.php">로그아웃</a>
-          </td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+            <th>아이디</th>
+            <td><?php echo $mb['mb_id'] ?></td>
+          </tr>
+          <tr>
+            <th>이름</th>
+            <td><?php echo $mb['mb_name'] ?></td>
+          </tr>
+          <tr>
+            <td colspan="2" class = "td_center">
+              <a href="./register.php?mode=modify">회원수정</a>
+              <a href="./logout.php">로그아웃</a>
+            </td>
+          </tr>
+        </table>
+     </div>
     <?php } ?>
    </body>
  </html>
