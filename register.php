@@ -74,9 +74,12 @@ if(isset($_SESSION['ss_mb_id']) && $_GET['mode'] == 'modify'){
            <tr>
              <th>성별</th>
              <td>
-               <label for=""><input type="radio" name="mb_gender" value="남자"<?php echo ($mb['mb_gender'] == "남자") ? "checked":"" ?>>남자</label>
-               <label for=""><input type="radio" name="mb_gender" value="여자"<?php echo ($mb['mb_gender'] == "여자") ? "checked":"" ?>>여자</label>
+               <label for=""><input type="radio" name="gender" value="남자"<?php echo ($mb['mb_gender'] == "남자") ? "checked":"" ?>>남자</label>
+               <label for=""><input type="radio" name="gender" value="여자"<?php echo ($mb['mb_gender'] == "여자") ? "checked":"" ?>>여자</label>
              </td>
+           </tr>
+           <tr>
+             <td colspan = "2" class = "td_center"><input type="submit" name="" value="<?php echo $title ?>"><a href="./login.php">취소</a></td>
            </tr>
          </table>
        </form>

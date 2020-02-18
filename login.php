@@ -66,7 +66,7 @@ include("./connect.php");
         </tr>
         <tr>
           <td colspan="2" class = "td_center">
-            <a href="./register.php?mode=modify">회원가입</a>
+            <a href="./register.php?mode=modify">회원수정</a>
             <a href="./logout.php">로그아웃</a>
           </td>
         </tr>
