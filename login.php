@@ -50,6 +50,9 @@ include("./connect.php");
      </div>
    <?php } else {?>
      <div class="login_form">
+       <div class="notice">
+         <a href="../noticeboard/noticeboard.php">게시판</a>
+       </div>
        <h1>로그인을 환영합니다</h1>
        <?php $mb_id = $_SESSION['ss_mb_id'];
        $sql = "SELECT * FROM member WHERE mb_id = TRIM('$mb_id')";

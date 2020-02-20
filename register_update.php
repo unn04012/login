@@ -58,7 +58,7 @@ if(!$mb_email){
   exit;
 }
 
-$sql = "SELECT PASSWORD('$mb_password') AS pass";
+$sql = "SELECT $mb_password AS pass";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $mb_password = $row['pass'];
