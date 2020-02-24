@@ -24,6 +24,9 @@ include("./connect.php");
      .td_center{
        text-align : center;
      }
+     .notice{
+       text-align : center;
+     }
      </style>
    </head>
    <?php if(!isset($_SESSION['ss_mb_id'])){ ?>
@@ -48,7 +51,15 @@ include("./connect.php");
          </table>
        </form>
      </div>
-   <?php } else {?>
+   <?php } else if($_SESSION['ss_mb_id'] === "admin"){?>
+     <div class="login_form">
+       <h1>관리자 계정</h1>
+       <div class="notice">
+         <a href="../noticeboard/noticeboard.php">게시판</a>
+         <a href="./user_list.php">사용자 목록</a>
+       </div>
+     </div>
+   <?php } else{ ?>
      <div class="login_form">
        <div class="notice">
          <a href="../noticeboard/noticeboard.php">게시판</a>

@@ -15,7 +15,7 @@ switch($mode){
     $title = "회원 가입";
     break;
   case 'modify' :
-    $mb_id = trim($_POST['ss_mb_id']);
+    $mb_id = trim($_SESSION['ss_mb_id']);
     $title = "회원 수정";
     break;
 }
@@ -89,7 +89,7 @@ if($mode == "insert"){    // 회원가입인 상태
                 mb_name = '$mb_name',
                 mb_email = '$mb_email',
                 mb_gender = '$mb_gender',
-                mb_datetime  ='$mb_datetime' ;
+                mb_datetime  ='$mb_datetime'
             WHERE mb_id = '$mb_id'";
   $result = mysqli_query($conn, $sql);
 }
