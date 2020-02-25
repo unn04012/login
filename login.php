@@ -5,50 +5,22 @@ include("./connect.php");
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
+     <link rel="stylesheet" href="./login.css">
      <title></title>
-     <style media="screen">
-     body{
-       margin : 0;
-       padding : 0;
-     }
-     .login_form{
-       position : absolute;
-       top : 50%;
-       left : 50%;
-       transform : translate(-50%, -50%);
-     }
-     table{
-       border : 2px solid black;
-       padding : 20px;
-     }
-     .td_center{
-       text-align : center;
-     }
-     .notice{
-       text-align : center;
-     }
-     </style>
    </head>
    <?php if(!isset($_SESSION['ss_mb_id'])){ ?>
    <body>
      <div class="login_form">
        <form class="" action="login_check.php" method="post">
-         <table>
-           <tr>
-             <th>아이디</th>
-             <td><input type="text" name="id" value=""></td>
-           </tr>
-           <tr>
-             <th>비밀번호</th>
-             <td><input type="password" name="pw" value=""> </td>
-           </tr>
-           <tr>
-             <td colspan = "2" class = "td_center">
-               <input type="submit" name="" value="로그인">
-               <a href="./register.php">회원가입</a>
-             </td>
-           </tr>
-         </table>
+         <h1>로그인</h1>
+         <div class="line">
+          <input type="text" name="id" value="" placeholder = "아이디">
+          <input type="password" name="pw" value="" placeholder = "비밀번호">
+         </div>
+         <div class="sign">
+           <input type="submit" name="" value="로그인">
+           <a href="./register.php">회원가입</a>
+         </div>
        </form>
      </div>
    <?php } else if($_SESSION['ss_mb_id'] === "admin"){?>
@@ -61,7 +33,7 @@ include("./connect.php");
      </div>
    <?php } else{ ?>
      <div class="login_form">
-       <div class="notice">
+       <div class="sign">
          <a href="../noticeboard/noticeboard.php">게시판</a>
        </div>
        <h1>로그인을 환영합니다</h1>
@@ -71,22 +43,16 @@ include("./connect.php");
        $mb = mysqli_fetch_assoc($result);
        mysqli_close($conn);
       ?>
-        <table>
-          <tr>
-            <th>아이디</th>
-            <td><?php echo $mb['mb_id'] ?></td>
-          </tr>
-          <tr>
-            <th>이름</th>
-            <td><?php echo $mb['mb_name'] ?></td>
-          </tr>
-          <tr>
-            <td colspan="2" class = "td_center">
-              <a href="./register.php?mode=modify">회원수정</a>
-              <a href="./logout.php">로그아웃</a>
-            </td>
-          </tr>
-        </table>
+      <div class="id">
+        아이디 : <?php echo $mb['mb_id'] ?>
+      </div>
+      <div class="name">
+        이름 : <?php echo $mb['mb_name'] ?>
+      </div>
+      <div class="sign">
+        <a href="./register.php?mode=modify">회원수정</a>
+        <a href="./logout.php">로그아웃</a>
+      </div>
      </div>
     <?php } ?>
    </body>
