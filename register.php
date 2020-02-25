@@ -22,28 +22,7 @@ if(isset($_SESSION['ss_mb_id']) && $_GET['mode'] == 'modify'){
    <head>
      <meta charset="utf-8">
      <title>Register</title>
-     <style media="screen">
-     body{
-       margin : 0;
-       padding : 0;
-     }
-     .form{
-       position : absolute;
-       top : 50%;
-       left : 50%;
-       transform : translate(-50%, -50%);
-     }
-     .form h1{
-       text-align  :center;
-     }
-     table{
-       border : 2px solid black;
-       padding : 20px;
-     }
-     .td_center{
-       text-align : center;
-     }
-     </style>
+     <link rel="stylesheet" href="./login.css">    
    </head>
    <body>
      <div class="form">
@@ -71,17 +50,18 @@ if(isset($_SESSION['ss_mb_id']) && $_GET['mode'] == 'modify'){
              <th>이메일</th>
              <td><input type="email" name="email" value="<?php echo $mb['mb_email'] ?>"> </td>
            </tr>
-           <tr>
+             <tr id = "gender">
              <th>성별</th>
              <td>
                <label for=""><input type="radio" name="gender" value="남자"<?php echo ($mb['mb_gender'] == "남자") ? "checked":"" ?>>남자</label>
                <label for=""><input type="radio" name="gender" value="여자"<?php echo ($mb['mb_gender'] == "여자") ? "checked":"" ?>>여자</label>
              </td>
            </tr>
-           <tr>
-             <td colspan = "2" class = "td_center"><input type="submit" name="" value="<?php echo $title ?>"><a href="./login.php">취소</a></td>
-           </tr>
          </table>
+         <div class="submit">
+          <input type="submit" name="" value="<?php echo $title ?>">
+          <a href="./login.php">취소</a>
+         </div>
        </form>
      </div>
      <script type="text/javascript">
